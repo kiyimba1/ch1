@@ -9,8 +9,24 @@ import { NgForm } from '@angular/forms';
 export class AppComponent {
   defaultQuestion = 'pet';
   answer = '';
+  genders = ['male', 'female'];
+  user = {
+    username: '',
+    email: '',
+    secretQuestion: '',
+    answer: '',
+    gender: ''
+  };
   suggestUserName() {
     const suggestedName = 'Superuser';
+    // this.signupForm.setValue({
+    //   userData:
+    // })
+    this.signupForm.form.patchValue({
+      userData: {
+        username: suggestedName
+      }
+    });
   }
 
   @ViewChild('f') signupForm: NgForm;
@@ -21,6 +37,9 @@ export class AppComponent {
   // }
 
   onSubmit() {
-    console.log(this.signupForm);
+    this.user.username = this.signupForm.value.userData.username;
+    this.user.username = this.signupForm.value.userData.username;
+    this.user.username = this.signupForm.value.userData.username;
+    this.user.username = this.signupForm.value.userData.username;
   }
 }
